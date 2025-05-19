@@ -1,10 +1,9 @@
 ---
 title: "唐诗三百首"
-creator:
-- role: editor
-  text: 编者：万泽
-date: "2019-12-31"
-subject: [文学]
-lang: zh
+author: "蘅塘退士"
+creator: "Wander"
+date: "2025-05-19"
+subject: "文学.诗歌"
+lang: zh-hans
 css: epub.css
-cover-image: cover.jpg
+cover-image: book_cover.jpg

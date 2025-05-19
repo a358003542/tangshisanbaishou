@@ -1,143 +1,10 @@
 % !Mode:: "TeX:UTF-8"
 
-
 \documentclass[12pt,oneside]{book}
 
-\newlength{\textpt}
-\setlength{\textpt}{12pt}
 
-
-%========基本必备的宏包========%
-\usepackage{calc,float,multicol,moresize}
-\linespread{1.6}
-
-%===========全文基本格式==========%
-\setlength{\parskip}{1.6ex plus 0.2ex minus 0.2ex}   %段落間距
-\setlength{\parindent}{\textpt * \real{2}}
-
-
-%=========页面设置=========%
-\usepackage[a4paper, %a4paper size 297:210 mm
-  bindingoffset=10mm,%裝訂線
-  top=35mm,  %上邊距 包括頁眉
-  bottom=30mm,%下邊距 包括頁腳
-  inner=10mm,  %左邊距or inner
-  outer=10mm,  %右邊距or  outer
-  headheight=10mm,%頁眉
-  headsep=15mm,%
-  footskip=15mm,%
-  marginparsep=0pt, %旁註與正文間距
-  marginparwidth=0em,includemp=true% 旁註寬度計入width%旁註寬度
-  ]{geometry}
-
-
-
-%color
-\usepackage[table,svgnames]{xcolor}
-
-
-%================字體================%
-%设置数学字体
-\usepackage{amssymb,amsmath}
-\usepackage{stmaryrd}
-\usepackage{fontspec}
-\everymath{\displaystyle}
-
- %設置英文字體
-\setmainfont[Mapping=tex-text]{DejaVu Serif}
-\setsansfont[Mapping=tex-text]{DejaVu Sans}
-\setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
-
-%中文環境
-\usepackage[]{xeCJK}
-\xeCJKsetup{PunctStyle=plain}
-\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
-\setCJKsansfont{思源黑体 CN}
-\setCJKmonofont{方正楷体简体}
-
-
-%================目录===============%
-\usepackage{tocloft}%
-\makeatletter
-\renewcommand{\numberline}[1]{\@cftbsnum #1\@cftasnum~\@cftasnumb}
-\makeatother
-
-%%===============中文化=========%
-\renewcommand\contentsname{目~录}
-\renewcommand\listfigurename{插图目录}
-\renewcommand\listtablename{表格目录}
-\renewcommand\bibname{参~考~文~献}
-\renewcommand\indexname{索~引}
-\renewcommand\figurename{图}
-\renewcommand\tablename{表}
-\renewcommand\partname{部分}
-\renewcommand\appendixname{附录}
-\renewcommand{\today}{\number\year 年\number\month 月\number\day 日}
-
-
-%=======页眉页脚格式=========%
-\usepackage{fancyhdr}
-\usepackage{zhnumber}
-\pagestyle{fancy}
-\renewcommand{\sectionmark}[1]
-{\markright{第\zhnumber{\arabic{section}}节~~#1}{}}
-
-\fancypagestyle{plain}{%
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-    \fancyhf[HR]{\ttfamily \footnotesize \rightmark }
-    \fancyhf[FR]{\thepage}}
-\pagestyle{plain}
-
-
-
-%=========章節標題設計=========%
-\usepackage{titlesec}
-%修改part
-\titleformat{\part}{\huge\sffamily\centering}{}{0em}{}
-%修改chapter
-\titleformat{\chapter}{\LARGE\sffamily\centering}{}{0em}{}
-%修改section
-\titleformat{\section}{\Large\sffamily\centering}{}{0em}{}
-%修改subsection
-\titleformat{\subsection}{\large\sffamily\centering}{}{0em}{}
-%修改subsubsection
-\titleformat{\subsubsection}{\normalsize\sffamily\centering}{}{0em}{}
-
-
-%==============超鏈接===============%
-\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
-
-
-%=================文字強調=========%
-\usepackage{ulem}
-\normalem
-
-
-%==================插入圖片=======%
-\usepackage{wrapfig}
-\usepackage{graphicx}
-\graphicspath{{figures/}}
-
-
-%==============插入表格========%
-\usepackage{booktabs}
-\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
-\usepackage{caption}
-
-
-%========脚注=========%
-\usepackage{perpage}
-\MakePerPage{footnote}
-\setlength{\skip\footins}{20pt plus 10pt}
-
-
-%framed环境
-\usepackage{framed}
-
-
-\usepackage{indentfirst} 
+\usepackage{mybook} 
+\usepackage{mybookcover}
 
 \newenvironment{shici}{
 \begin{verse}
@@ -145,20 +12,24 @@
 {\end{verse}}
 
 \title{唐诗三百首}
-\author{作者: 蘅塘退士}
+\author{蘅塘退士}
 \hypersetup{
-  pdfkeywords={},
-  pdfsubject={制作者邮箱：a358003542@outlook.com},
-  pdfcreator={万泽}}
+    pdftitle={唐诗三百首},
+    pdfauthor={蘅塘退士},
+    pdfcreator={Wander},
+    pdfsubject={文学.诗歌},
+}
+  
+
 \begin{document}
+\bookcover{book_cover.jpg}
 
-\maketitle
-\setcounter{tocdepth}{2}
-\tableofcontents
-
+\flypage{感谢上帝}
 
 
-\chapter{前言}
+\frontmatter 
+\addchtoc{序言}
+\chapter*{序言}
 此电子版本乃由Ned Walsh于一九九二年春陆续输入。当时他是美国Columbia大学的博士班学生。他断断续续地学习了十年的中文，其博士论文的主题将是关于北宋时期的词。我于该年春末将全文校正一遍，并稍改Ned的格式。全本共有三百又二十首诗，原由蘅塘退士选辑，分为六卷。以下目录中，右端列的是诗的编号。
 
 ——单维彰 1992-7-5
@@ -167,12 +38,13 @@
 
 用\LaTeX 排版，部分不明确的字结合手写输入和网络资源明确电脑输入，然后参考汉典给出基本字义。——万泽 2014-10。
 
-%这里空一行。
+\addchtoc{目录}
+\setcounter{tocdepth}{2}    
+\tableofcontents
 
 
 
 \mainmatter
-
 \part{五言古诗}
 \chapter{张九龄：感遇四首之一}
 \begin{shici}
